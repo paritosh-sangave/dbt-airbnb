@@ -1,2 +1,6 @@
 *.p8
 *.pub
+*.temp
+profiles.yml
+.venv
+logs
