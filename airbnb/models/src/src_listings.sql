@@ -3,7 +3,7 @@ WITH
         SELECT
             *
         FROM
-            AIRBNB.RAW.RAW_LISTINGS
+            {{ source('airbnb', 'listings') }}
     )
 SELECT
     id as listing_id,
