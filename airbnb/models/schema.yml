@@ -1,15 +1,18 @@
 models:
   - name: dim_listings_cleansed
+    description: Cleansed table which contains AirBnb listings
     data_tests:
       - minimum_row_count:
           arguments:
             min_row_count: 1000
     columns:
       - name: listing_id
+        description: Primary key for listing
         data_tests:
           - unique
           - not_null
       - name: host_id
+        description: Foreign key for hosts
         data_tests:
           - not_null
           - relationships:
@@ -17,6 +20,7 @@ models:
                 to: ref('dim_hosts_cleansed')
                 field: host_id
       - name: room_type
+        description: Type of apartment/room
         data_tests:
           - accepted_values:
               arguments:
@@ -25,6 +29,7 @@ models:
                           'Shared room',
                           'Hotel room']
       - name: minimum_nights
+        description: '{{ doc("dim_listings_cleansed__minimum_nights")}}'
         data_tests:
           - not_null
           - positive_values
@@ -35,16 +40,21 @@ models:
           enforced: true
     columns:
       - name: host_id
+        description: Primary key for host
         data_type: integer
       - name: host_name
+        description: Name of host
         data_type: string
       - name: is_superhost
+        description: Whether host is a superhost ('t', 'f')
         data_type: string
         data_tests:
           - accepted_values:
               arguments:
                 values: ['t', 'f']
       - name: updated_at
+        description: Date of last update
         data_type: timestamp
       - name: created_at
+        description: Date of creation
         data_type: timestamp
