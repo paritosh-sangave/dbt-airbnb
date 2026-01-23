@@ -40,16 +40,21 @@ models:
           enforced: true
     columns:
       - name: host_id
+        description: Primary key for host
         data_type: integer
       - name: host_name
+        description: Name of host
         data_type: string
       - name: is_superhost
+        description: Whether host is a superhost ('t', 'f')
         data_type: string
         data_tests:
           - accepted_values:
               arguments:
                 values: ['t', 'f']
       - name: updated_at
+        description: Date of last update
         data_type: timestamp
       - name: created_at
+        description: Date of creation
         data_type: timestamp
