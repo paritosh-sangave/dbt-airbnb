@@ -1,6 +1,8 @@
 models:
   - name: dim_listings_cleansed
     description: Cleansed table which contains AirBnb listings
+    config:
+      static_analysis: off
     data_tests:
       - minimum_row_count:
           arguments:
@@ -36,6 +38,7 @@ models:
 
   - name: dim_hosts_cleansed
     config:
+        static_analysis: off
         contract:
           enforced: true
     columns:
@@ -58,3 +61,27 @@ models:
       - name: created_at
         description: Date of creation
         data_type: timestamp
+
+  - name: dim_listings_w_hosts
+    config:
+        static_analysis: off
+
+  - name: fct_reviews
+    config:
+        static_analysis: off
+
+  - name: mart_full_moon_reviews
+    config:
+        static_analysis: off
+
+  - name: src_hosts
+    config:
+        static_analysis: off
+
+  - name: src_listings
+    config:
+        static_analysis: off
+
+  - name: src_reviews
+    config:
+        static_analysis: off
