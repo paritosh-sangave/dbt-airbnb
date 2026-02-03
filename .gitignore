@@ -4,3 +4,4 @@
 profiles.yml
 .venv
 logs
+.vscode
